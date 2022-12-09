@@ -21,14 +21,14 @@ def ping(host: str, mtu: int) -> tp.Tuple[bool, str]:
         return False, err.output.decode()
 
 
-def check_connection_availability(host):
+def check_connection_availability(host: str):
     is_available, err = ping(host, 0)
     if not is_available:
         print(f'Connection is unavailable, because of error:\n{err}')
         exit(0)
 
 
-def find_max_right_bound(host) -> int:
+def find_max_right_bound(host: str) -> int:
     result = 1
     while ping(host, result)[0]:
         result *= 2
@@ -37,7 +37,7 @@ def find_max_right_bound(host) -> int:
 
 @click.command(help='Finds minimal MTU between your host and destination host')
 @click.option('--host', required=True, type=str, help='Destination host')
-def find_min_mtu(host):
+def find_min_mtu(host: str):
     check_connection_availability(host)
 
     left_bound = 0
