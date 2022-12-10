@@ -8,20 +8,20 @@
 - Настроен проброс порта 2022 в сторону клиента в vlan20 на порт 22 на L3-1.
 
 ## Получение сетевых настроек по DHCP
-[](screens/dhcp.png)
+![](screens/dhcp.png)
 
 ## Связь между клиентами в локальной сети
 
-[](screens/ping_local.png)
+![](screens/ping_local.png)
 
 ## Связь клиентов с маршрутизатором L3-2
 
-[](screens/ping_remote.png)
+![](screens/ping_remote.png)
 
 ## Настроки роутеров L3-1, L3-2
 
-[](screens/ip_int.png)
+![](screens/ip_int.png)
 
 ## Трансляция порта
 
-[](screens/port_translation.png)
+![](screens/port_translation.png)
