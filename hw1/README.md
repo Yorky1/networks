@@ -4,7 +4,7 @@
 
 ![Alt text](screens/screen1.png?raw=true "Title")
 
-## Конфигурация stp для vlan 10, 20
+## Настройка STP для vlan 10, 20
 
 ![Alt text](screens/stp_vlan10.png?raw=true "Title")
 ![Alt text](screens/stp_vlan20.png?raw=true "Title")
