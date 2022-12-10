@@ -1,0 +1,12 @@
+VPCS> show ip
+
+NAME        : VPCS[1]
+IP/MASK     : 10.0.10.11/24
+GATEWAY     : 10.0.10.1
+DNS         : 8.8.8.8  
+DHCP SERVER : 10.0.10.1
+DHCP LEASE  : 82684, 86400/43200/75600
+MAC         : 00:50:79:66:68:01
+LPORT       : 20000
+RHOST:PORT  : 127.0.0.1:30000
+MTU         : 1500
