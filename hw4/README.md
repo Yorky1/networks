@@ -9,7 +9,7 @@
 
 ![](screens/ping_gre.png)
 
-## Пинг между VPC1 и VPC2
+## Пинг между VPC1 и VPC3
 
 ![](screens/ping_ipvsec.png)
 
