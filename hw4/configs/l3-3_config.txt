@@ -1,0 +1,147 @@
+
+!
+! Last configuration change at 14:55:53 UTC Sun Dec 11 2022
+!
+version 15.7
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+redundancy
+!
+!
+! 
+!
+!
+!
+!
+crypto isakmp policy 1
+ encr aes
+ authentication pre-share
+crypto isakmp key KEY address 100.100.100.2  
+!
+!
+crypto ipsec transform-set SET esp-aes esp-sha-hmac 
+ mode transport
+!
+!
+!
+crypto map MAP 10 ipsec-isakmp 
+ set peer 100.100.100.2
+ set transform-set SET 
+ match address 101
+!
+!
+!
+!
+!
+interface Tunnel0
+ no shutdown
+ ip address 10.0.3.3 255.255.255.0
+ tunnel source 102.100.100.2
+ tunnel destination 100.100.100.2
+!
+interface Ethernet0/0
+ no shutdown
+ ip address 102.100.100.2 255.255.255.0
+ duplex auto
+ crypto map MAP
+!
+interface Ethernet0/1
+ no shutdown
+ ip address 10.0.30.1 255.255.255.0
+ duplex auto
+!
+interface Ethernet0/2
+ no shutdown
+ no ip address
+ shutdown
+ duplex auto
+!
+interface Ethernet0/3
+ no shutdown
+ no ip address
+ shutdown
+ duplex auto
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+ip route 0.0.0.0 0.0.0.0 102.100.100.1
+ip route 10.0.10.0 255.255.255.0 10.0.3.2
+!
+ipv6 ioam timestamp
+!
+!
+access-list 101 permit gre host 102.100.100.2 host 100.100.100.2
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login
+ transport input none
+!
+!
+end
